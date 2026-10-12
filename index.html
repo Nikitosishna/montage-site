@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Никита Архиреев — монтаж Reels и видеоуроков в CapCut. Портфолио, цены и контакты.">
+<title>Монтаж Никиты Архиреева</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: страница как монтажная таймлиния — секции подписаны таймкодами, герой с дорожками V1/V2/A1 и плейхедом */
+:root{
+--bg:#F2F3F6; --surface:#FFFFFF; --fg:#15171E; --muted:#5B6070; --line:#DADDE5;
+--accent:#4338CA; --accent-fg:#FFFFFF; --playhead:#E5484D;
+--clip-a:#2A9D8F; --clip-b:#E9A23B; --clip-c:#D9466F; --clip-d:#6D5BD0;
+--display:'Unbounded', 'Arial Black', Arial, sans-serif;
+--body:'Manrope', 'Segoe UI', Arial, sans-serif;
+--mono:'JetBrains Mono', 'Courier New', monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+--bg:#101218; --surface:#181B23; --fg:#ECEEF3; --muted:#9CA2B2; --line:#2A2F3B;
+--accent:#8B93FF; --accent-fg:#101218; --playhead:#FF6B6F;
+--clip-a:#35B3A4; --clip-b:#F0B355; --clip-c:#E9628A; --clip-d:#8C7CF0; color-scheme:dark}}
+:root[data-theme="dark"]{
+--bg:#101218; --surface:#181B23; --fg:#ECEEF3; --muted:#9CA2B2; --line:#2A2F3B;
+--accent:#8B93FF; --accent-fg:#101218; --playhead:#FF6B6F;
+--clip-a:#35B3A4; --clip-b:#F0B355; --clip-c:#E9628A; --clip-d:#8C7CF0; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;padding-inline:20px}
+.wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:96px;padding-block:28px 64px}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.12;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.tc{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--muted)}
+.tc b{color:var(--playhead);font-weight:500}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-weight:700;font-size:18px;text-decoration:none;display:flex;align-items:center;gap:10px}
+.rec{width:10px;height:10px;border-radius:50%;background:var(--playhead)}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-size:15px;font-weight:500}
+nav a:hover{color:var(--fg)}
+/* hero */
+.hero{display:flex;flex-direction:column;gap:28px}
+.hero h1{font-size:clamp(34px,6.2vw,72px);max-width:15ch}
+.hero h1 span{color:var(--accent)}
+.lead{font-size:19px;color:var(--muted);max-width:56ch}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px;border:1.5px solid var(--fg)}
+.btn.primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.btn:hover{transform:translateY(-1px)}
+/* timeline */
+.timeline{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 16px 18px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.tl-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.tl-tc{font-family:var(--mono);font-size:22px;font-weight:500;color:var(--fg);font-variant-numeric:tabular-nums}
+.tl-meta{display:flex;gap:14px;flex-wrap:wrap}
+.tracks{position:relative;display:flex;flex-direction:column;gap:6px;padding-top:22px}
+.ruler{position:absolute;top:0;left:44px;right:0;height:16px;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 10%)}
+.track{display:flex;align-items:center;gap:10px;height:34px}
+.track .lbl{width:34px;flex:none;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.lane{position:relative;flex:1;height:100%;background:color-mix(in srgb,var(--line) 45%,transparent);border-radius:6px}
+.clip{position:absolute;top:3px;bottom:3px;border-radius:5px;font-family:var(--mono);font-size:11px;color:#fff;padding:0 8px;display:flex;align-items:center;white-space:nowrap;overflow:hidden}
+.wave{background:repeating-linear-gradient(90deg,var(--clip-a) 0 2px,transparent 2px 5px);opacity:.75}
+.playhead{position:absolute;top:0;bottom:0;left:44px;width:2px;background:var(--playhead);pointer-events:none}
+.playhead::before{content:"";position:absolute;top:0;left:-6px;border:7px solid transparent;border-top:9px solid var(--playhead)}
+/* section heading */
+section{display:flex;flex-direction:column;gap:32px;scroll-margin-top:20px}
+.sh{display:flex;flex-direction:column;gap:10px}
+.sh h2{font-size:clamp(26px,3.6vw,40px)}
+.sh p{color:var(--muted);max-width:60ch}
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.svc .fmt{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:12px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.svc h3{font-size:19px}
+.svc p{color:var(--muted);font-size:15.5px}
+.price{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;gap:10px;font-size:15px}
+.price b{font-weight:700}
+/* portfolio */
+.services.two{grid-template-columns:repeat(2,1fr)}
+.reels{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(170px,21%,230px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-width:thin}
+.reel{scroll-snap-align:start;display:flex;flex-direction:column;gap:10px;text-decoration:none;min-width:0}
+.rthumb{position:relative;aspect-ratio:9/16;max-width:100%;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,var(--clip-c),var(--clip-d))}
+.rthumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.reel:hover .rthumb img{transform:scale(1.04)}
+.reel:hover .rthumb{border-color:var(--accent)}
+.ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.rlabel{font-size:14px;font-weight:600;display:flex;gap:8px;align-items:center}
+.rlabel .mono{color:var(--accent)}
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.work{display:flex;flex-direction:column;gap:12px;text-decoration:none;min-width:0}
+.thumb{position:relative;aspect-ratio:16/10;max-width:100%;border-radius:12px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.frame{position:relative;height:84%;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.frame.h{aspect-ratio:16/9;height:auto;width:88%}
+.frame.v{aspect-ratio:9/16}
+.play{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center}
+.play::after{content:"";margin-left:4px;border-left:14px solid #15171E;border-top:9px solid transparent;border-bottom:9px solid transparent}
+.dur{position:absolute;right:10px;bottom:10px;font-family:var(--mono);font-size:12px;background:rgba(16,18,24,.78);color:#fff;padding:2px 7px;border-radius:5px}
+.work:hover .thumb{border-color:var(--accent)}
+.work h3{font-size:16px;font-family:var(--body);font-weight:700}
+.work .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);border-top:2px solid var(--fg)}
+.step{padding:20px 18px 0 0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.step .tc{color:var(--accent)}
+.step h3{font-size:16px;font-family:var(--body);font-weight:700}
+.step p{color:var(--muted);font-size:15px}
+/* tools */
+.tools{display:flex;gap:10px;flex-wrap:wrap}
+.tool{padding:10px 16px;border-radius:10px;background:var(--surface);border:1px solid var(--line);font-weight:500}
+/* contact */
+.contact{background:var(--fg);color:var(--bg);border-radius:20px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.contact h2{font-size:clamp(28px,4vw,46px)}
+.contact .tc{color:color-mix(in srgb,var(--bg) 65%,transparent)}
+.contact p{color:color-mix(in srgb,var(--bg) 75%,transparent)}
+.cards{display:flex;flex-direction:column;gap:12px}
+.ct{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-radius:12px;border:1px solid color-mix(in srgb,var(--bg) 25%,transparent);min-width:0}
+.ct .k{font-size:13px;color:color-mix(in srgb,var(--bg) 65%,transparent)}
+.ct .v{font-family:var(--mono);font-size:16px;user-select:all;overflow-wrap:anywhere}
+.copy{flex:none;background:var(--bg);color:var(--fg);border:0;border-radius:8px;padding:8px 12px;font:600 14px var(--body);cursor:pointer}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:20px;margin-top:-48px}
+@media (max-width:900px){
+.services,.works{grid-template-columns:repeat(2,1fr)}
+.steps{grid-template-columns:repeat(2,1fr);border-top:0;gap:0 16px}
+.step{border-top:2px solid var(--fg);padding-bottom:20px}
+.contact{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+body{font-size:16px}
+.wrap{gap:72px}
+.services,.services.two,.works,.steps{grid-template-columns:1fr}
+.reels{grid-auto-columns:62%}
+nav{display:none}
+.clip{font-size:10px;padding:0 5px}
+}
+@media (prefers-reduced-motion:reduce){.btn:hover{transform:none}.rthumb img{transition:none}.reel:hover .rthumb img{transform:none}}
+</style>
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<a class="logo" href="#top"><span class="rec" aria-hidden="true"></span>Никита Архиреев</a>
+<nav aria-label="Разделы">
+<a href="#services">Услуги</a>
+<a href="#works">Работы</a>
+<a href="#process">Как работаю</a>
+<a href="#contact">Контакты</a>
+</nav>
+</header>
+<div class="hero" id="top">
+<p class="tc"><b>●</b> REC · монтаж Reels и видеоуроков · удалённо</p>
+<h1>Монтаж, который <span>досматривают</span> до конца</h1>
+<p class="lead">Монтирую динамичные Reels с графикой и эффектами, а длинные видеоуроки собираю в понятную структуру без пауз и оговорок. Вы присылаете исходники — получаете готовое видео.</p>
+<div class="actions">
+<a class="btn primary" href="#contact">Обсудить проект</a>
+<a class="btn" href="#works">Смотреть работы</a>
+</div>
+<div class="timeline" aria-label="Иллюстрация монтажной таймлинии">
+<div class="tl-head">
+<span class="tl-tc" id="tc">00:00:00:00</span>
+<div class="tl-meta"><span class="tc">1080×1920</span><span class="tc">30 fps</span><span class="tc">CapCut</span></div>
+</div>
+<div class="tracks" id="tracks">
+<div class="ruler" aria-hidden="true"></div>
+<div class="track"><span class="lbl">V2</span><div class="lane">
+<div class="clip" style="left:18%;width:14%;background:var(--clip-d)">титры</div>
+<div class="clip" style="left:62%;width:18%;background:var(--clip-d)">графика</div>
+</div></div>
+<div class="track"><span class="lbl">V1</span><div class="lane">
+<div class="clip" style="left:0;width:22%;background:var(--clip-c)">интро</div>
+<div class="clip" style="left:22.5%;width:31%;background:var(--accent)">интервью_A</div>
+<div class="clip" style="left:54%;width:12%;background:var(--clip-b)">b-roll</div>
+<div class="clip" style="left:66.5%;width:24%;background:var(--accent)">интервью_B</div>
+<div class="clip" style="left:91%;width:9%;background:var(--clip-c)">аутро</div>
+</div></div>
+<div class="track"><span class="lbl">A1</span><div class="lane">
+<div class="clip wave" style="left:0;width:100%"></div>
+</div></div>
+<div class="track"><span class="lbl">A2</span><div class="lane">
+<div class="clip" style="left:0;width:54%;background:var(--clip-a)">музыка</div>
+<div class="clip" style="left:56%;width:44%;background:var(--clip-a)">музыка_2</div>
+</div></div>
+<div class="playhead" id="playhead" aria-hidden="true"></div>
+</div>
+</div>
+</div>
+<section id="services">
+<div class="sh">
+<p class="tc"><b>00:00:12:00</b> · услуги</p>
+<h2>Что монтирую</h2>
+<p>Работаю в CapCut. Цены ориентировочные, по среднему рынку: точная стоимость зависит от объёма исходников и сроков.</p>
+</div>
+<div class="services two">
+<article class="svc">
+<div class="fmt"><span class="chip">9:16</span><span class="chip">до 90 с</span></div>
+<h3>Reels и Shorts</h3>
+<p>Динамичная нарезка с хуком в первые секунды, субтитры, музыка в ритм, эффекты и графика.</p>
+<div class="price"><span>от <b>2 000 ₽</b> за ролик</span><span class="mono">1–2 дня</span></div>
+</article>
+<article class="svc">
+<div class="fmt"><span class="chip">16:9</span><span class="chip">от 45 мин</span></div>
+<h3>Видеоуроки</h3>
+<p>Убираю паузы и оговорки, делю урок на смысловые блоки, добавляю подписи, плашки и выравниваю звук.</p>
+<div class="price"><span>от <b>5 000 ₽</b> за урок</span><span class="mono">3–5 дней</span></div>
+</article>
+</div>
+</section>
+<section id="works">
+<div class="sh">
+<p class="tc"><b>00:00:31:15</b> · портфолио</p>
+<h2>Работы</h2>
+<p>Reels из портфолио. Нажмите на обложку, чтобы открыть ролик в Telegram, листайте вбок. Все работы — в канале <a href="https://t.me/ArkhireevNikitaPortfolio" target="_blank" rel="noopener">@ArkhireevNikitaPortfolio</a>.</p>
+</div>
+<div class="reels">
+<a class="reel" href="https://t.me/ArkhireevNikitaPortfolio/40" target="_blank" rel="noopener">
+<div class="rthumb"><img src="img/w1.webp" alt="Обложка Reels №1" loading="lazy"><span class="dur">Reels</span></div>
+<span class="rlabel"><span class="mono">#01</span> Смотреть в Telegram ↗</span>
+</a>
+<a class="reel" href="https://t.me/ArkhireevNikitaPortfolio/39" target="_blank" rel="noopener">
+<div class="rthumb"><img src="img/w2.webp" alt="Обложка Reels №2" loading="lazy"><span class="dur">Reels</span></div>
+<span class="rlabel"><span class="mono">#02</span> Смотреть в Telegram ↗</span>
+</a>
+<a class="reel" href="https://t.me/ArkhireevNikitaPortfolio/37" target="_blank" rel="noopener">
+<div class="rthumb"><img src="img/w3.webp" alt="Обложка Reels №3" loading="lazy"><span class="dur">Reels</span></div>
+<span class="rlabel"><span class="mono">#03</span> Смотреть в Telegram ↗</span>
+</a>
+<a class="reel" href="https://t.me/ArkhireevNikitaPortfolio/33" target="_blank" rel="noopener">
+<div class="rthumb"><img src="img/w4.webp" alt="Обложка Reels №4" loading="lazy"><span class="dur">Reels</span></div>
+<span class="rlabel"><span class="mono">#04</span> Смотреть в Telegram ↗</span>
+</a>
+<a class="reel" href="https://t.me/ArkhireevNikitaPortfolio/28" target="_blank" rel="noopener">
+<div class="rthumb"><img src="img/w5.webp" alt="Обложка Reels №5" loading="lazy"><span class="dur">Reels</span></div>
+<span class="rlabel"><span class="mono">#05</span> Смотреть в Telegram ↗</span>
+</a>
+<a class="reel" href="https://t.me/ArkhireevNikitaPortfolio/21" target="_blank" rel="noopener">
+<div class="rthumb"><img src="img/w6.webp" alt="Обложка Reels №6" loading="lazy"><span class="dur">Reels</span></div>
+<span class="rlabel"><span class="mono">#06</span> Смотреть в Telegram ↗</span>
+</a>
+<a class="reel" href="https://t.me/ArkhireevNikitaPortfolio/26" target="_blank" rel="noopener">
+<div class="rthumb"><div class="ph" aria-hidden="true"><span class="play"></span></div><span class="dur">Reels</span></div>
+<span class="rlabel"><span class="mono">#07</span> Смотреть в Telegram ↗</span>
+</a>
+</div>
+</section>
+<section id="process">
+<div class="sh">
+<p class="tc"><b>00:00:44:08</b> · процесс</p>
+<h2>Как проходит работа</h2>
+</div>
+<div class="steps">
+<div class="step"><span class="tc">01</span><h3>Бриф</h3><p>Обсуждаем задачу, площадку, длительность и референсы.</p></div>
+<div class="step"><span class="tc">02</span><h3>Исходники</h3><p>Вы присылаете видео и звук по ссылке на облако.</p></div>
+<div class="step"><span class="tc">03</span><h3>Черновой монтаж</h3><p>Собираю структуру и ритм, показываю первую версию.</p></div>
+<div class="step"><span class="tc">04</span><h3>Правки</h3><p>Вношу правки по вашим комментариям.</p></div>
+<div class="step"><span class="tc">05</span><h3>Финальный рендер</h3><p>Отдаю файл в нужном формате и качестве.</p></div>
+</div>
+</section>
+<section id="contact">
+<div class="contact">
+<div class="sh">
+<p class="tc">00:00:58:12 · финальный кадр</p>
+<h2>Есть видео, которое нужно смонтировать?</h2>
+<p>Напишите, что за проект и к какому сроку. Отвечу в течение дня и назову стоимость.</p>
+</div>
+<div class="cards">
+<div class="ct"><div><div class="k">Telegram</div><div class="v" id="c1"><a href="https://t.me/Nikitosishna" target="_blank" rel="noopener">@Nikitosishna</a></div></div><button class="copy" type="button" data-copy="c1">Копировать</button></div>
+<div class="ct"><div><div class="k">Почта</div><div class="v" id="c2">ArkhireevNS@mail.ru</div></div><button class="copy" type="button" data-copy="c2">Копировать</button></div>
+<div class="ct"><div><div class="k">ВКонтакте</div><div class="v" id="c3"><a href="https://vk.ru/nikitosishna" target="_blank" rel="noopener">vk.ru/nikitosishna</a></div></div><button class="copy" type="button" data-copy="c3">Копировать</button></div>
+</div>
+</div>
+</section>
+<footer>
+<span>© 2026 Никита Архиреев · видеомонтаж</span>
+<span class="mono">END 00:01:00:00</span>
+</footer>
+</div>
+<script>
+(function(){
+var ph=document.getElementById('playhead'), tc=document.getElementById('tc'), tracks=document.getElementById('tracks');
+var total=60*30; // 60 секунд при 30 fps
+function fmt(f){var s=Math.floor(f/30),fr=f%30,m=Math.floor(s/60),ss=s%60;function p(n){return String(n).padStart(2,'0')}return '00:'+p(m)+':'+p(ss)+':'+p(fr)}
+function place(t){var w=tracks.clientWidth-44;ph.style.left=(44+w*t)+'px';tc.textContent=fmt(Math.floor(total*t))}
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduce){place(.38);window.addEventListener('resize',function(){place(.38)});}
+else{var start=null,dur=14000;function loop(ts){if(start===null)start=ts;place(((ts-start)%dur)/dur);requestAnimationFrame(loop)}place(0);requestAnimationFrame(loop)}
+document.querySelectorAll('[data-copy]').forEach(function(b){
+b.addEventListener('click',function(){
+var el=document.getElementById(b.getAttribute('data-copy')), txt=el.textContent;
+function done(){b.textContent='Скопировано';setTimeout(function(){b.textContent='Копировать'},1600)}
+function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Выделено'}
+try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(e){fallback()}
+});
+});
+})();
+</script>
+</body>
+</html>
